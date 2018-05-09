@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on jeffawang</title>
+    <link>/tags/</link>
+    <description>Recent content in Tags on jeffawang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 27 Mar 2018 14:19:09 -0700</lastBuildDate>
+    
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Dev</title>
+      <link>/tags/dev/</link>
+      <pubDate>Tue, 27 Mar 2018 14:19:09 -0700</pubDate>
+      
+      <guid>/tags/dev/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Macos</title>
+      <link>/tags/macos/</link>
+      <pubDate>Tue, 27 Mar 2018 14:19:09 -0700</pubDate>
+      
+      <guid>/tags/macos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Terminal</title>
+      <link>/tags/terminal/</link>
+      <pubDate>Tue, 27 Mar 2018 14:19:09 -0700</pubDate>
+      
+      <guid>/tags/terminal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tmux</title>
+      <link>/tags/tmux/</link>
+      <pubDate>Tue, 27 Mar 2018 14:19:09 -0700</pubDate>
+      
+      <guid>/tags/tmux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Windows</title>
+      <link>/tags/windows/</link>
+      <pubDate>Tue, 27 Mar 2018 14:19:09 -0700</pubDate>
+      
+      <guid>/tags/windows/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Wsl</title>
+      <link>/tags/wsl/</link>
+      <pubDate>Tue, 27 Mar 2018 14:19:09 -0700</pubDate>
+      
+      <guid>/tags/wsl/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
