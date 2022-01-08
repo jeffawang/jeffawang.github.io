@@ -1,16 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Terminal on jeffawang</title>
+    <title>terminal on jeffawang</title>
     <link>/tags/terminal/</link>
-    <description>Recent content in Terminal on jeffawang</description>
+    <description>Recent content in terminal on jeffawang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 27 Mar 2018 14:19:09 -0700</lastBuildDate>
-    
-	<atom:link href="/tags/terminal/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 27 Mar 2018 14:19:09 -0700</lastBuildDate><atom:link href="/tags/terminal/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How I Use tmux</title>
       <link>/posts/how-i-use-tmux/</link>

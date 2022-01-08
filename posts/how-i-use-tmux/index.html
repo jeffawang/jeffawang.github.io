@@ -96,90 +96,52 @@ window.onload = ready;
 
 <div class="content">
 	<h1>How I Use tmux <aside><a href="/tags/tmux/" class="w3-tag">/tmux</a>&nbsp;&nbsp;&nbsp;<a href="/tags/terminal/" class="w3-tag">/terminal</a>&nbsp;&nbsp;&nbsp;<a href="/tags/dev/" class="w3-tag">/dev</a>&nbsp;&nbsp;&nbsp;<a href="/tags/macos/" class="w3-tag">/macos</a>&nbsp;&nbsp;&nbsp;<a href="/tags/windows/" class="w3-tag">/windows</a>&nbsp;&nbsp;&nbsp;<a href="/tags/wsl/" class="w3-tag">/wsl</a>&nbsp;&nbsp;&nbsp;</aside></h1>
-	
-
-<p><img src="/images/tmux/donkeysay.gif" alt="" /></p>
-
+	<p><img src="/images/tmux/donkeysay.gif" alt=""></p>
 <p>This post explores a bit about integrating tmux into my workflow on MacOS and the Windows Subsystem for Linux.</p>
-
 <p>Over time, I&rsquo;ve built up a set of configurations that work well together for me. Because they&rsquo;re in <a href="https://github.com/jeffawang/dotfiles">a git repo</a>, they&rsquo;re available anywhere I can access github, and I can track any changes I make immediately.</p>
-
 <p>I don&rsquo;t recommend copying my dotfiles exactly. Instead, I&rsquo;d recommend picking and choosing a few things at a time to add, so that there&rsquo;s time to get used to any new changes. I&rsquo;m a firm believer in knowing exactly what&rsquo;s my dotfiles, and choices that worked for me might not work for anyone else.</p>
-
 <h4 id="contents">Contents:</h4>
-
 <ul>
 <li><a href="#terminal-emulators">Terminal Emulators</a>
-
 <ul>
 <li><a href="#wsl-conemu">Windows: WSL(Ubuntu) + ConEmu</a></li>
 <li><a href="#macos-iterm2">MacOS: iTerm2</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="#installation">Installation</a></li>
 <li><a href="#tmux-prefix">The tmux Prefix Key</a></li>
 <li><a href="#tmux-keybinds">Some Nice Custom tmux Key Bindings</a></li>
 </ul>
-
-<h2 id="terminal-emulators-a-name-terminal-emulators-a">Terminal Emulators<a name="terminal-emulators"></a></h2>
-
+<h2 id="terminal-emulatorsa-nameterminal-emulatorsa">Terminal Emulators<a name="terminal-emulators"></a></h2>
 <p>One key feature I look for in Mac/Windows terminal emulators is the ability to create custom keybindings/macros.</p>
-
 <p>Ideally, the keybind system can send multiple key chords in series, so that I can combine tmux multi-chord keybinds into one. For example, in iTerm2, I&rsquo;ve set <code>⌘J</code> to send <code>C-\</code> and then <code>J</code>, so that I can use the one chord to switch windows.</p>
-
 <p>For sufferers of RSI and carpal tunnel, this is a relief. Plus, by doing half the keystrokes and not having to move off the home-row, it&rsquo;s more than twice as fast than using two-chord bindings.</p>
-
 <p>Furthermore, because it&rsquo;s just sending the character codes to the terminal, the same keybindings can be used in a tmux session accessed through ssh.</p>
-
-<h2 id="windows-wsl-ubuntu-conemu-a-name-wsl-conemu-a">Windows: WSL(Ubuntu) + ConEmu<a name="wsl-conemu"></a></h2>
-
+<h2 id="windows-wslubuntu--conemua-namewsl-conemua">Windows: WSL(Ubuntu) + ConEmu<a name="wsl-conemu"></a></h2>
 <p>On Windows, I use <a href="https://conemu.github.io/">ConEmu</a> as a terminal emulator. This is because the default terminal emulator that comes with WSL doesn&rsquo;t support custom keybindings.</p>
-
 <p><img src="/images/tmux/conemu_tmux.png" style="border-radius: 0" alt="tmux, ConEmu, and WSL together"/></p>
-
 <p>I like this setup because it&rsquo;s very similar to what I have on MacOS (as described in the next section). This greatly reduces the context switch when moving between Windows desktop and Macbook.</p>
-
 <p>Since ConEmu isn&rsquo;t just for WSL, I had to <a href="/images/tmux/conemu_bash_task.png">set up a bash task</a>, then update the ConEmu startup task to use it.</p>
-
 <p>Then, I was able to set up macros, similar to keybindings I had in iTerm2.</p>
-
 <p><img src="/images/tmux/conemu_settings.png" style="border-radius: 0" alt="ConEmu can support up to 32 macros"/></p>
-
 <p>So far, this has worked out. Just like I&rsquo;m able to use <code>⌘J</code> on MacOS to go to the next tmux window, I can use <code>Alt-J</code> on Windows to do the same.</p>
-
 <p>One caveat is that ConEmu only supports having 32 macros. This is enough for me at the moment, but if I need more in the future, I may look into something like AutoHotkey.</p>
-
-<h2 id="macos-iterm2-a-name-macos-iterm2-a">MacOS: iTerm2<a name="macos-iterm2"></a></h2>
-
+<h2 id="macos-iterm2a-namemacos-iterm2a">MacOS: iTerm2<a name="macos-iterm2"></a></h2>
 <p>For MacOS, I chose iTerm2 because it&rsquo;s able to send a series of hex codes to the terminal via a keybind. Again, if I am using tmux through ssh, I can still use the keybindings, as if tmux were running locally.</p>
-
 <p>Setting up the keybinds is not the most straightforward process. In the iTerm2 Settings &gt; Profiles &gt; Keys, I added new keybindings with the &ldquo;+&rdquo; button. And in the dialog dropdown, I chose &ldquo;Send Hex Code.&rdquo; There, I typed in the keybinding.</p>
-
 <p>For example, sending <code>C-\</code> then <code>d</code>, the key binding is <code>0x1C 0x64</code>.</p>
-
 <p>After setting these up, I&rsquo;m able to do things like press <code>⌘J</code> to switch to the next tmux window and <code>⌘K</code> to switch to the previous window</p>
-
-<p><img src="/images/tmux/iterm2_settings.png" alt="Custom keybinds combine key chords" /></p>
-
+<p><img src="/images/tmux/iterm2_settings.png" alt="Custom keybinds combine key chords"></p>
 <p>As a note, <code>man ascii</code> shows the octal, hex, and decimal versions of ascii characters and proved immensely useful for setting up the tmux-iTerm2 mapping.</p>
-
-<p><img src="/images/tmux/ascii_hex.png" alt="An excerpt of `man ascii`" /></p>
-
-<h2 id="installation-a-name-installation-a">Installation<a name="installation"></a></h2>
-
-<p>When I&rsquo;m at the keyboard of a new computer, I want to be able to get up and running as fast as possible, so I created a simple install script.  This worked well on Mac and WSL Ubuntu, as well as plain ol&rsquo; Ubuntu.</p>
-
+<p><img src="/images/tmux/ascii_hex.png" alt="An excerpt of man ascii"></p>
+<h2 id="installationa-nameinstallationa">Installation<a name="installation"></a></h2>
+<p>When I&rsquo;m at the keyboard of a new computer, I want to be able to get up and running as fast as possible, so I created a simple install script.  This worked well on Mac and WSL Ubuntu, as well as plain ol' Ubuntu.</p>
 <p>Primarily, it sets up symlinks to my config files in the right places.</p>
-
-<p><img src="/images/tmux/install_script.png" alt="The script sets up symlinks pointed to my dotfiles repo." /></p>
-
+<p><img src="/images/tmux/install_script.png" alt="The script sets up symlinks pointed to my dotfiles repo."></p>
 <p>Because the config files are symlinks to the dotfiles repo, any changes I make are immediately tracked in git; I can commit them right away, or if it stops working, I can revert.</p>
-
-<h2 id="the-tmux-prefix-key-a-name-tmux-prefix-a">The tmux Prefix Key<a name="tmux-prefix"></a></h2>
-
+<h2 id="the-tmux-prefix-keya-nametmux-prefixa">The tmux Prefix Key<a name="tmux-prefix"></a></h2>
 <p>Right now, I&rsquo;m using <code>C-\</code> as a prefix. In bash, it&rsquo;s used for sending SIGQUIT. I never really find myself doing this, and if I need it, I&rsquo;ll be okay with pressing <code>C-\</code> twice.</p>
-
 <p>These are some of the prefix keys I considered.</p>
-
 <table>
 <thead>
 <tr>
@@ -187,46 +149,36 @@ window.onload = ready;
 <th>My assessment</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td><code>C-\</code></td>
 <td>My current prefix. It sends SIGQUIT in bash, but I never really used that.</td>
 </tr>
-
 <tr>
 <td><code>C-b</code></td>
 <td>The default prefix. I use this to go back one character in bash.</td>
 </tr>
-
 <tr>
 <td><code>C-a</code></td>
 <td>screen&rsquo;s default prefix. I use this to go back to the start of the line in bash.</td>
 </tr>
-
 <tr>
 <td><code>C-o</code></td>
 <td>The <code>vim-go</code> plugin uses <code>C-x C-o</code> for completion. In bash, it is &ldquo;operate-and-get-next&rdquo;, which I never really used.</td>
 </tr>
-
 <tr>
 <td><code>C-space</code></td>
 <td>The Windows terminal emulators I tried didn&rsquo;t support this. Also, I think this does something for emacs users.</td>
 </tr>
-
 <tr>
 <td><code>`</code></td>
 <td>This (backtick) is useful for literal strings in go, writing markdown, and bash subshells (though I normally use <code>$()</code>)</td>
 </tr>
 </tbody>
 </table>
-
-<h2 id="my-favorite-custom-tmux-key-bindings-a-name-tmux-keybinds-a">My Favorite Custom Tmux Key Bindings<a name="tmux-keybinds"></a></h2>
-
+<h2 id="my-favorite-custom-tmux-key-bindingsa-nametmux-keybindsa">My Favorite Custom Tmux Key Bindings<a name="tmux-keybinds"></a></h2>
 <p>Some tmux keybindings I use <em>a lot</em>. After getting them in my muscle memory, they feel very natural, especially since they don&rsquo;t require two chords anymore.</p>
-
 <p>You can all of see them in my <a href="https://github.com/jeffawang/dotfiles/blob/master/tmux.conf"><code>tmux.conf</code></a>. Here are some of them:</p>
-
 <table>
 <thead>
 <tr>
@@ -235,92 +187,77 @@ window.onload = ready;
 <th>effect</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td><code>⌘t</code></td>
 <td><code>t</code></td>
 <td>new window</td>
 </tr>
-
 <tr>
 <td><code>⌘|</code></td>
 <td><code>|</code></td>
 <td>vertical split pane</td>
 </tr>
-
 <tr>
 <td><code>⌘_</code></td>
 <td><code>_</code></td>
 <td>horizontal split pane</td>
 </tr>
-
 <tr>
 <td><code>⌘j</code> / <code>⌘]</code></td>
 <td><code>j</code></td>
 <td>next pane</td>
 </tr>
-
 <tr>
 <td><code>⌘k</code> / <code>⌘[</code></td>
 <td><code>k</code></td>
 <td>previous pane</td>
 </tr>
-
 <tr>
 <td><code>⌘J</code> / <code>⌘}</code></td>
 <td><code>J</code></td>
 <td>next window</td>
 </tr>
-
 <tr>
 <td><code>⌘K</code> / <code>⌘{</code></td>
 <td><code>K</code></td>
 <td>previous window</td>
 </tr>
-
 <tr>
 <td><code>⌘w</code></td>
 <td><code>w</code></td>
 <td>close window</td>
 </tr>
-
 <tr>
 <td><code>⌘d</code></td>
 <td><code>d</code></td>
 <td>detach from tmux</td>
 </tr>
-
 <tr>
 <td><code>⌘m</code></td>
 <td><code>m</code></td>
 <td>open man page tmux prompt</td>
 </tr>
-
 <tr>
 <td><code>⌘g</code></td>
 <td><code>g</code></td>
 <td>enter tmux copy mode</td>
 </tr>
-
 <tr>
 <td><code>⌘p</code></td>
 <td><code>p</code></td>
 <td>paste last tmux copy-buffer</td>
 </tr>
-
 <tr>
 <td><code>⌘P</code></td>
 <td><code>P</code></td>
 <td>prompt which tmux copy-buffer to paste</td>
 </tr>
-
 <tr>
 <td><code>⌘:</code></td>
 <td><code>:</code></td>
 <td>tmux command-line prompt</td>
 </tr>
-
 <tr>
 <td><code>⌘↑Enter</code></td>
 <td><code>x</code></td>
@@ -328,12 +265,9 @@ window.onload = ready;
 </tr>
 </tbody>
 </table>
-
 <h2 id="in-conclusion">In Conclusion</h2>
-
 <p>By now, <code>tmux</code> has become one of my favorite terminal tools, as is probably obvious from the length of this post. By taking a couple steps to integrate it slightly deeper into my workflows, I&rsquo;ve been able to reduce context switching when moving between setups.</p>
-
-<p>I hope this was helpful and informative. Happy tmuxin&rsquo;!</p>
+<p>I hope this was helpful and informative. Happy tmuxin'!</p>
 
 </div>
 

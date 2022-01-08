@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on jeffawang</title>
@@ -6,13 +6,9 @@
     <description>Recent content in Tags on jeffawang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 27 Mar 2018 14:19:09 -0700</lastBuildDate>
-    
-	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 27 Mar 2018 14:19:09 -0700</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Dev</title>
+      <title>dev</title>
       <link>/tags/dev/</link>
       <pubDate>Tue, 27 Mar 2018 14:19:09 -0700</pubDate>
       
@@ -21,7 +17,7 @@
     </item>
     
     <item>
-      <title>Macos</title>
+      <title>macos</title>
       <link>/tags/macos/</link>
       <pubDate>Tue, 27 Mar 2018 14:19:09 -0700</pubDate>
       
@@ -30,7 +26,7 @@
     </item>
     
     <item>
-      <title>Terminal</title>
+      <title>terminal</title>
       <link>/tags/terminal/</link>
       <pubDate>Tue, 27 Mar 2018 14:19:09 -0700</pubDate>
       
@@ -39,7 +35,7 @@
     </item>
     
     <item>
-      <title>Tmux</title>
+      <title>tmux</title>
       <link>/tags/tmux/</link>
       <pubDate>Tue, 27 Mar 2018 14:19:09 -0700</pubDate>
       
@@ -48,7 +44,7 @@
     </item>
     
     <item>
-      <title>Windows</title>
+      <title>windows</title>
       <link>/tags/windows/</link>
       <pubDate>Tue, 27 Mar 2018 14:19:09 -0700</pubDate>
       
@@ -57,7 +53,7 @@
     </item>
     
     <item>
-      <title>Wsl</title>
+      <title>wsl</title>
       <link>/tags/wsl/</link>
       <pubDate>Tue, 27 Mar 2018 14:19:09 -0700</pubDate>
       
