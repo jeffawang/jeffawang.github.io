@@ -42,56 +42,8 @@
 
 </header>
 
-
-<div id="loadingMask" style="width: 100%; height: 100%; position: fixed; background: #fff;"></div>
-<script>
-function fadeOut(el) {
-  el.style.opacity = 1;
-
-  var last = +new Date();
-  var tick = function() {
-    el.style.opacity = +el.style.opacity - (new Date() - last) / 80;
-    last = +new Date();
-    
-
-    if (el.style.opacity > 0) {
-      (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
-    } else {
-    	el.style.display='none';
-    }
-  };
-
-  tick();
-}
-
-function ready(fn) {
-    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
-         el = document.getElementById('loadingMask');
-         fadeOut(el);
-        var elements = document.querySelectorAll("img");
-        Array.prototype.forEach.call(elements, function(el, i) {
-            if (el.getAttribute("alt")) {
-                const caption = document.createElement('figcaption');
-                var node = document.createTextNode(el.getAttribute("alt"));
-                caption.appendChild(node);
-                const wrapper = document.createElement('figure');
-                wrapper.className = 'image';
-                el.parentNode.insertBefore(wrapper, el);
-                el.parentNode.removeChild(el);
-                wrapper.appendChild(el);
-                wrapper.appendChild(caption);
-            }
-        });
-
-    } else {
-        document.addEventListener('DOMContentLoaded', fn);
-    }
-}
-window.onload = ready;
-</script>
-
 <div class="content">
-	<h1>How I Use tmux <aside><a href="/tags/tmux/" class="w3-tag">/tmux</a>&nbsp;&nbsp;&nbsp;<a href="/tags/terminal/" class="w3-tag">/terminal</a>&nbsp;&nbsp;&nbsp;<a href="/tags/dev/" class="w3-tag">/dev</a>&nbsp;&nbsp;&nbsp;<a href="/tags/macos/" class="w3-tag">/macos</a>&nbsp;&nbsp;&nbsp;<a href="/tags/windows/" class="w3-tag">/windows</a>&nbsp;&nbsp;&nbsp;<a href="/tags/wsl/" class="w3-tag">/wsl</a>&nbsp;&nbsp;&nbsp;</aside></h1>
+	<h1>How I Use tmux<aside><a href="/tags/tmux/" class="w3-tag" style="margin-left: 5px;">#tmux</a><a href="/tags/terminal/" class="w3-tag" style="margin-left: 5px;">#terminal</a><a href="/tags/dev/" class="w3-tag" style="margin-left: 5px;">#dev</a><a href="/tags/macos/" class="w3-tag" style="margin-left: 5px;">#macos</a><a href="/tags/windows/" class="w3-tag" style="margin-left: 5px;">#windows</a><a href="/tags/wsl/" class="w3-tag" style="margin-left: 5px;">#wsl</a></aside></h1>
 	<p><img src="/images/tmux/donkeysay.gif" alt=""></p>
 <p>This post explores a bit about integrating tmux into my workflow on MacOS and the Windows Subsystem for Linux.</p>
 <p>Over time, I&rsquo;ve built up a set of configurations that work well together for me. Because they&rsquo;re in <a href="https://github.com/jeffawang/dotfiles">a git repo</a>, they&rsquo;re available anywhere I can access github, and I can track any changes I make immediately.</p>
@@ -267,24 +219,15 @@ window.onload = ready;
 
 </div>
 
-
-
-
 	<p><small><em>Written March 27, 2018. </em>
 		 
 		Send feedback to <a  href="https://twitter.com/intent/tweet?text=%40jeffawang%20%23postshow-i-use-tmux%20">@jeffawang</a>.
 		
 	</small></p>
-
 	<p>
 	
 	
 	</p>
-
-
-
-
-
 
 <footer>
 </footer>
